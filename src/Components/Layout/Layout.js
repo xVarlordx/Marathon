@@ -2,9 +2,9 @@ import classes from './Layout.module.css'
 
 const Layout = (props) => {
     const descFull = classes.desc + ' ' + classes.full;
-    const styleRoot = props.urlBg ? {backgroundImage: `url(${props.urlBg})`} : {backgroundColor: `${props.colorBg}`};
+    const styleRoot = props.urlBg && {backgroundImage: `url(${props.urlBg})`} || props.colorBg && {backgroundColor: props.colorBg} || {};
 
-    return (
+        return (
             <section className={classes.root} style={styleRoot}>
                 <div className={classes.wrapper}>
                     <article>
@@ -13,7 +13,7 @@ const Layout = (props) => {
                             <span className={classes.separator} />
                         </div>
                         <div className={descFull}>
-                            {props.descr && <p>{props.descr}</p>}
+                            {props.children}
                         </div>
                     </article>
                 </div>
