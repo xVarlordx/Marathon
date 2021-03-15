@@ -5,7 +5,6 @@ import Layout from "./Components/Layout/Layout";
 import Footer from "./Components/Footer/Footer";
 import PockemonCard from "./Components/PockemonCard/PockemonCard";
 
-
 import bg1 from './assets/bg1.jpg'
 import bg3 from './assets/buttle.jpg'
 import './App.css'
