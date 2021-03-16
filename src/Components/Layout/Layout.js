@@ -1,7 +1,7 @@
 import classes from './Layout.module.css'
+import cn from 'classnames'
 
 const Layout = (props) => {
-    const descFull = classes.desc + ' ' + classes.full;
     const styleRoot = (props.urlBg && {backgroundImage: `url(${props.urlBg})`}) || (props.colorBg && {backgroundColor: props.colorBg}) || {};
 
         return (
@@ -12,7 +12,7 @@ const Layout = (props) => {
                             {props.title && <h3>{props.title}</h3>}
                             <span className={classes.separator} />
                         </div>
-                        <div className={descFull}>
+                        <div className={cn(classes.desc, classes.full)}>
                             {props.children}
                         </div>
                     </article>

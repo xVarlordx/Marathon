@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import classes from './PockemonCard.module.css';
 import CardBackSide from '../../assets/card-back-side.jpg';
+import cn from 'classnames'
 
 const PockemonCard = (props) => {
     const [isActive, setActive] = useState(false);
@@ -9,15 +10,15 @@ const PockemonCard = (props) => {
     }
     return (
 <div className={classes.root} onClick={reverseHandler}>
-      <div className={`${classes.pokemonCard} ${isActive ? classes.active : ''}`}>
+      <div className={cn(classes.pokemonCard, {[classes.active]: isActive})}>
         <div className={classes.cardFront}>
-            <div className={`${classes.wrap} ${classes.front}`}>
-                <div className={`${classes.pokemon} ${classes[props.type]}`}>
+            <div className={cn(classes.wrap, classes.front)}>
+                <div className={cn(classes.pokemon, classes[props.type])}>
                     <div className={classes.values}>
-                        <div className={`${classes.count} ${classes.top}`}>{props.values.top}</div>
-                        <div className={`${classes.count} ${classes.right}`}>{props.values.right}</div>
-                        <div className={`${classes.count} ${classes.bottom}`}>{props.values.bottom}</div>
-                        <div className={`${classes.count} ${classes.left}`}>{props.values.left}</div>
+                        <div className={cn(classes.count, classes.top)}>{props.values.top}</div>
+                        <div className={cn(classes.count, classes.right)}>{props.values.right}</div>
+                        <div className={cn(classes.count, classes.bottom)}>{props.values.bottom}</div>
+                        <div className={cn(classes.count, classes.left)}>{props.values.left}</div>
                     </div>
                     <div className={classes.imgContainer}>
                         <img src={props.img} alt={props.name} />
@@ -34,7 +35,7 @@ const PockemonCard = (props) => {
         </div>
 
         <div className={classes.cardBack}>
-            <div className={`${classes.wrap} ${classes.back}`}>
+            <div className={cn(classes.wrap, classes.back)}>
                 <img src={CardBackSide} alt="Сard Backed" />
             </div>
         </div>

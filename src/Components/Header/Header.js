@@ -1,12 +1,19 @@
 import classes from './Header.module.css'
 
-const Header = (props) => {
+const Header = ({title, descr, onClickButton}) => {
+    const handleClick = () => {
+        console.log('####: <Header />');
+        onClickButton && onClickButton('game');
+    }
     return (
             <header className={classes.root}>
                 <div className={classes.forest} />
                 <div className={classes.container}>
-                    {props.title && <h1>{props.title}</h1>}
-                    {props.descr && <p>{props.descr}</p>}
+                    <h1>{title}</h1>
+                    <p>{descr}</p>
+                    <button onClick={handleClick} className={classes.HomeButton}>
+                        Start Game!
+                    </button>
                 </div>
             </header>
     );
