@@ -148,7 +148,6 @@ const POCKEMONS = [
 
 const HomePage = ({onChangePage}) => {
     const handleClickButton = (page) => {
-        console.log('####: <HomePage />');
         onChangePage && onChangePage(page);
     }
     return(

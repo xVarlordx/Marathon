@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 const Navbar = ({isActive, onHandle} ) => {
 const onReverseHandler = () => {
-    console.log(isActive);
     onHandle()
 }
     return (
