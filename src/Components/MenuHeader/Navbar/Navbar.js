@@ -12,9 +12,9 @@ const onReverseHandler = () => {
                 <p className={classes.brand}>
                     LOGO
                 </p>
-                <a onClick={onReverseHandler} className={cn(classes.menuButton, {[classes.active]: isActive})}>
+                <div onClick={onReverseHandler} className={cn(classes.menuButton, {[classes.active]: isActive})}>
                     <span/>
-                </a>
+                </div>
             </div>
         </nav>
     );

@@ -6,14 +6,14 @@ import Navbar from "./Navbar/Navbar";
 import classes from './MenuHeader.module.css'
 
 const MenuHeader = () => {
-    const [isActive, setActive] = useState(false);
+    const [isActive, setActive] = useState(null);
 
     const reverseHandler = () => {
         setActive(!isActive);
     }
 
     return(
-        <div>
+        <div className={classes.MenuHeader}>
             <Menu
                 isActive={isActive}
             />
