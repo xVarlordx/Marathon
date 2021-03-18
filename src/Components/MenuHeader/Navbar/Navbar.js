@@ -1,18 +1,22 @@
 import classes from './Navbar.module.css'
 import cn from 'classnames';
 
-const Navbar = ({isActive, onHandle} ) => {
-const onReverseHandler = () => {
-    onHandle()
-}
+const Navbar = ({isActive, onHandle, bgActive = false} ) => {
     return (
-        <nav className={classes.root}>
+        <nav id={classes.navbar} className={cn({
+            [classes.bgActive]: bgActive
+        })}>
             <div className={classes.navWrapper}>
                 <p className={classes.brand}>
                     LOGO
                 </p>
-                <div onClick={onReverseHandler} className={cn(classes.menuButton, {[classes.active]: isActive})}>
-                    <span/>
+                <div
+                    onClick={onHandle}
+                    className={cn(classes.menuButton, {
+                        [classes.active]: isActive
+                    })}
+                >
+                    <span />
                 </div>
             </div>
         </nav>

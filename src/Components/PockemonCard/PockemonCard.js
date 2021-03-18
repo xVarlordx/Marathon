@@ -1,34 +1,30 @@
-import { useState} from 'react';
 import classes from './PockemonCard.module.css';
 import CardBackSide from '../../assets/card-back-side.jpg';
 import cn from 'classnames'
 
-const PockemonCard = (props) => {
-    const [isActive, setActive] = useState(false);
-    const reverseHandler = () => {
-        setActive(!isActive);
-    }
+const PockemonCard = ({type, values, id, img, name, isActive, reverseHandler}) => {
+
     return (
 <div className={classes.root} onClick={reverseHandler}>
       <div className={cn(classes.pokemonCard, {[classes.active]: isActive})}>
         <div className={classes.cardFront}>
             <div className={cn(classes.wrap, classes.front)}>
-                <div className={cn(classes.pokemon, classes[props.type])}>
+                <div className={cn(classes.pokemon, classes[type])}>
                     <div className={classes.values}>
-                        <div className={cn(classes.count, classes.top)}>{props.values.top}</div>
-                        <div className={cn(classes.count, classes.right)}>{props.values.right}</div>
-                        <div className={cn(classes.count, classes.bottom)}>{props.values.bottom}</div>
-                        <div className={cn(classes.count, classes.left)}>{props.values.left}</div>
+                        <div className={cn(classes.count, classes.top)}>{values.top}</div>
+                        <div className={cn(classes.count, classes.right)}>{values.right}</div>
+                        <div className={cn(classes.count, classes.bottom)}>{values.bottom}</div>
+                        <div className={cn(classes.count, classes.left)}>{values.left}</div>
                     </div>
                     <div className={classes.imgContainer}>
-                        <img src={props.img} alt={props.name} />
+                        <img src={img} alt={name} />
                     </div>
                     <div className={classes.info}>
-                        <span className={classes.number}>#{props.id}</span>
-                        <h3 className={classes.name}>
-                            {props.name}
+                        <span className={classes.number}>#{id}</span>
+                        <h3 className={name}>
+                            {name}
                         </h3>
-                        <small className={classes.type}>Type: <span>{props.type}</span></small>
+                        <small className={type}>Type: <span>{type}</span></small>
                     </div>
                 </div>
             </div>
