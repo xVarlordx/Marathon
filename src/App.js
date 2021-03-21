@@ -8,8 +8,9 @@ import ContactPage from "./routes/Contact";
 import AboutPage from "./routes/About";
 import NotFound from "./routes/NotFound";
 
-
 import classes from './style.module.css'
+
+
 
 const App = () => {
     const match = useRouteMatch('/');
