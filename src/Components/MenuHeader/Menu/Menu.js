@@ -1,26 +1,27 @@
 import classes from './Menu.module.css'
 import cn from 'classnames'
+import {Link} from 'react-router-dom'
 
 const MENU = [
     {
         title: 'HOME',
-        to: '#welcome',
+        to: '/',
     },
     {
         title: 'GAME',
-        to: '#game',
+        to: 'game',
     },
     {
         title: 'ABOUT',
-        to: '#about',
+        to: 'about',
     },
     {
         title: 'CONTACT',
-        to: '#contact',
+        to: 'contact',
     },
 ]
 
-const Menu = ({isActive}) => {
+const Menu = ({isActive, reversHandler}) => {
     return(
         <div className={cn(classes.menuContainer, {
             [classes.active]: isActive === true,
@@ -32,9 +33,9 @@ const Menu = ({isActive}) => {
                     {
                         MENU.map(({title, to}, index) => (
                             <li key={index}>
-                                <a href={to}>
+                                <Link to={to} onClick={reversHandler}>
                                     {title}
-                                </a>
+                                </Link>
                             </li>
                         ))
                     }
