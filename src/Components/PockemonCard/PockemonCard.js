@@ -3,9 +3,8 @@ import CardBackSide from '../../assets/card-back-side.jpg';
 import cn from 'classnames'
 
 const PockemonCard = ({type, values, id, img, name, isActive, reverseHandler}) => {
-
     return (
-<div className={classes.root} onClick={reverseHandler}>
+<div className={classes.root} onClick={() => reverseHandler(id)}>
       <div className={cn(classes.pokemonCard, {[classes.active]: isActive})}>
         <div className={classes.cardFront}>
             <div className={cn(classes.wrap, classes.front)}>

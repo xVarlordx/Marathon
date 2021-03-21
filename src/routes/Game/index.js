@@ -1,7 +1,7 @@
 import { useHistory} from 'react-router-dom'
 import classes from './style.module.css'
 import PockemonCard from "../../Components/PockemonCard/PockemonCard";
-// import React, {useState} from "react";
+import React, {useState} from "react";
 
 const POCKEMONS = [
     {
@@ -144,18 +144,9 @@ const GamePage = ({onChangePage}) => {
         history.push('/');
     }
 
-    // const [cards, setCards] = useState(false);
-    // let newArray = [...cards]
-    const handleClick = (item) => {
-    //     const newArr = cards.map(function (item) {
-    //         const card = Object.assign({}, item);
-    //         card.active = true;
-    //         return card;
-    //     })
-    //     newArray = newArr
-    //     console.log(newArray)
-    //     console.log(newArray[0].active)
-        console.log('это сложно(')
+    const [pokemons, setPokemons] = useState(POCKEMONS);
+    const handleClick = (id) => {
+        setPokemons(prevState => prevState.map(item => item.id === id ? { ...item, active: !item.active }  : item))
     }
 
 
@@ -164,14 +155,14 @@ const GamePage = ({onChangePage}) => {
         <div>
             <div className={classes.flex}>
                 {
-                    POCKEMONS.map(item => <PockemonCard
+                    pokemons.map(item => <PockemonCard
                         key={item.id}
                         name = {item.name}
                         id = {item.id}
                         values = {item.values}
                         type = {item.type}
                         img = {item.img}
-                        isActive={true}
+                        isActive={item.active}
                         reverseHandler={handleClick}
                     />)
                 }
